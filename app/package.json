@@ -1,0 +1,28 @@
+{
+  "main": "index.html",
+  "name": "meedoma",
+  "description": "instant video from madoomee torrent",
+  "version": "0.1.0",
+  "keywords": [ "demo", "node-webkit" ],
+  "window": {
+    "title": "node-webkit demo",
+    "icon": "link.png",
+    "toolbar": true,
+    "frame": true,
+    "width": 800,
+    "height": 500,
+    "position": "mouse"
+
+  },
+  "dependencies": {
+  	"request" : "*",
+	"read-torrent" : "*",
+	"network-address" : "*",
+  	"peerflix" : "0.13.2",
+	"torrent-stream" : "*"
+	
+  },
+  "webkit": {
+    "plugin": true
+  }
+}

@@ -1,0 +1,4 @@
+cd app
+rm app.aw
+zip -r app.aw *
+nw app.aw

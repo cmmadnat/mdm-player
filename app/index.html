@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>mdm-player!</title>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<style type="text/css">
+body {
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+}
+</style>
+<script type="text/javascript">
+	var username = <username> 
+	var password = <password> 
+	var baseURL = <baseurl>
+
+	var request = require('request');
+	var peerflix = require('peerflix');
+	var mypeerflix = require('./mypeerflix');
+
+	var exec = require('child_process').exec;
+
+	// Load native UI library
+	var gui = require('nw.gui'); //or global.window.nwDispatcher.requireNwGui() (see https://github.com/rogerwang/node-webkit/issues/707)
+
+	// Get the current window
+	var win = gui.Window.get();
+
+	var http = require('http');
+	var fs = require('fs');
+
+	var autoFit = function() {
+		var frame = $('#web');
+		var height = $(document).height();
+		frame.height(height + 15);
+	}
+
+	$(document).ready(function() {
+		autoFit();
+		$(window).resize(function() {
+			autoFit();
+		});
+		$('#web').load(function(e) {
+
+			var t = $(this).contents().find('a[href$="torrent"]');
+			t.attr('data-href', t.attr('href'));
+			t.attr('href', '#');
+			t.click(function() {
+				var downloadUrl = $(this).attr('data-href');
+
+				var url = baseURL + downloadUrl;
+				var option = {
+					url : baseURL + '/takelogin.php',
+					method : 'post',
+					form : {
+						username : username,
+						password : password
+					}
+				}
+				
+				var r = request.defaults({jar: true})
+				
+				r(option, function(err, res, body) {
+					if (err){
+						alert('error = ' + JSON.stringify(err));
+					}
+					var tr = r.get(url).pipe(fs.createWriteStream('/tmp/latest.torrent'));
+					tr.on('close', function(){
+						alert('torrent loaded');
+						mypeerflix.read('/tmp/latest.torrent');
+
+					});
+				});
+
+			})
+
+		});
+
+	});
+</script>
+</head>
+<body>
+	<iframe width="100%" id="web" src="<baseurl>/browse.php"></iframe>
+</body>
+</html>
