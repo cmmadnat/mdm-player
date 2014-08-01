@@ -12,17 +12,18 @@ sudo npm install -g node-webkit
 ## how to build and run?
 
 1. install npm dependencies
-```
-cd app
-npm install
-```
+  ```
+  cd app
+  npm install
+  ```
 2. go to index.html, edit baseurl (to the bittorrent website you are subscribed to), enter your username and password to that website as well.
-```html
-var username = <username>
-var password = <password>
-var baseURL = <baseurl>
-```
+  ```html
+  var username = <username>
+  var password = <password>
+  var baseURL = <baseurl>
+  <iframe href="<baseurl>/browse.php">
+  ```
 3. run from buildrun
-```
-./buildrun
-```
+  ```
+  ./buildrun
+  ```
