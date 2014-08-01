@@ -1,6 +1,8 @@
 # mdm-player
-http://www.youtube.com/watch?v=QuApzd4pSHI&list=UUgIiC9DX1WRauQ5T2XMHv3A
 player for any bittorrent website
+Based on the popular bittorrent player. I decided to write a simple project to demonstate how easy you could turn any bittorrent website into your personal video portal, just like a youtube for any torrent website :D
+
+** for educational use only, use as your own risk, no warrantee
 
 ## requirement
 1. node.js (npm) you can install it buy download it from http://nodejs.org
