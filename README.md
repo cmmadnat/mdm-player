@@ -1,4 +1,5 @@
 # mdm-player
+![alt text](http://i.imgur.com/HjGqavD.png 'screenshot')
 player for any bittorrent website
 Based on the popular bittorrent player. I decided to write a simple project to demonstate how easy you could turn any bittorrent website into your personal video portal, just like a youtube for any torrent website :D
 
@@ -20,9 +21,9 @@ sudo npm install -g node-webkit
   ```
 2. go to index.html, edit baseurl (to the bittorrent website you are subscribed to), enter your username and password to that website as well.
   ```html
-  var username = <username>
-  var password = <password>
-  var baseURL = <baseurl>
+  var username = <username>,
+  var password = <password>,
+  var baseURL = <baseurl>,
   <iframe href="<baseurl>/browse.php">
   ```
 3. run from buildrun
