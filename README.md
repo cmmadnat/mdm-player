@@ -1,5 +1,5 @@
 # mdm-player
-
+http://www.youtube.com/watch?v=QuApzd4pSHI&list=UUgIiC9DX1WRauQ5T2XMHv3A
 player for any bittorrent website
 
 ## requirement
@@ -27,3 +27,6 @@ sudo npm install -g node-webkit
   ```
   ./buildrun
   ```
+## known issue
+1. sometime the torrent doesn't work, i guess the problem comes with the fact that i don't have time to implement the file selector
+2. after the torrent video is streamed to the vlc, i couldn't find the way to inform tracker of the application upload/download statistic. I hope there could be any workaround soon. maybe i could negotiate with the bittorrent website owner to overrule something to make this application works.
